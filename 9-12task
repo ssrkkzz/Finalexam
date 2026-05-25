@@ -1,0 +1,19 @@
+import pandas as pd
+
+data = {
+    "city": ["Almaty", "Astana", "Almaty"],
+    "distance_km": [10, 20, 15],
+    "minutes": [20, 40, 30]
+}
+
+df = pd.DataFrame(data)
+
+df["speed"] = df["distance_km"] / (df["minutes"] / 60)
+
+print(df)
+
+city_stats = df.groupby("city")["speed"].mean()
+
+print(city_stats)
+
+df.to_csv("orders.csv", index=False)
