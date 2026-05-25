@@ -1,0 +1,26 @@
+class DeliveryStats:
+    def __init__(self):
+        self.orders = []
+
+    def add_order(self, order):
+        self.orders.append(order)
+
+    def total_orders(self):
+        return len(self.orders)
+
+    def average_speed(self):
+
+        if len(self.orders) == 0:
+            return 0
+
+        total = sum(order.speed() for order in self.orders)
+
+        return round(total / len(self.orders), 2)
+
+stats = DeliveryStats()
+
+stats.add_order(Order(1, "Almaty", 10, 20))
+stats.add_order(Order(2, "Astana", 15, 30))
+
+print(stats.total_orders())
+print(stats.average_speed())
