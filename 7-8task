@@ -1,0 +1,21 @@
+import json
+import random
+
+def generate_routes(city, count=5):
+
+    routes = []
+
+    for i in range(count):
+        routes.append({
+            "route_id": i + 1,
+            "city": city,
+            "distance_km": random.randint(1, 30)
+        })
+
+    with open("routes.json", "w", encoding="utf-8") as file:
+        json.dump(routes, file, ensure_ascii=False, indent=4)
+
+    return routes
+
+
+generate_routes("Almaty")
