@@ -1,0 +1,27 @@
+class Order:
+    def __init__(self, order_id, city, distance_km, minutes):
+
+        if distance_km <= 0:
+            raise ValueError("Distance must be positive")
+
+        if minutes <= 0:
+            raise ValueError("Minutes must be positive")
+
+        if city.strip() == "":
+            raise ValueError("City cannot be empty")
+
+        self.order_id = order_id
+        self.city = city
+        self.distance_km = distance_km
+        self.minutes = minutes
+
+    def speed(self):
+        return self.distance_km / (self.minutes / 60)
+
+order1 = Order(1, "Almaty", 10, 20)
+
+print(order1.order_id)
+print(order1.city)
+print(order1.distance_km)
+print(order1.minutes)
+print(order1.speed())
