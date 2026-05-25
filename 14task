@@ -1,0 +1,16 @@
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route("/stats")
+def stats():
+    return jsonify({
+        "total_orders": 3,
+        "average_speed": 30.0
+    })
+
+app.run(debug=False)
+
+app.run(debug=False, use_reloader=False)
+
+http://127.0.0.1:5000/stats
