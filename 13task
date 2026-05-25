@@ -1,0 +1,11 @@
+import matplotlib.pyplot as plt
+
+city_stats.plot(kind="bar")
+
+plt.title("Average Delivery Speed")
+plt.xlabel("City")
+plt.ylabel("Speed")
+
+plt.savefig("delivery_speed.png")
+
+plt.show()
